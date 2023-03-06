@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../../Express Database/connection';
 
-const SellerProfile = sequelize.define('sellerProfile', {
+const Products = sequelize.define('Products', {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -11,37 +11,29 @@ const SellerProfile = sequelize.define('sellerProfile', {
   sellerId: {
     type: DataTypes.INTEGER,
   },
-  fullName: {
+  imgpath: {
     type: DataTypes.STRING,
   },
-  email: {
+  productName: {
     type: DataTypes.STRING,
   },
-  phoneNumber: {
-    type: DataTypes.BIGINT,
-  },
-  pincode: {
+  productRate: {
     type: DataTypes.INTEGER,
   },
-  city: {
+  productDiscription: {
     type: DataTypes.STRING,
   },
-  state: {
-    type: DataTypes.STRING,
-  },
-  shopArea: {
-    type: DataTypes.STRING,
-  },
-  gstNum: {
+  productCategory: {
     type: DataTypes.STRING,
   },
 }, {
-  createdAt: false,
-  updatedAt: false,
+  createdAt: true,
+  updatedAt: true,
   freezeTableName: true,
-  timestamps: false,
+  timestamps: true,
   logging: false,
+
 });
 
 // sequelize.sync({ alter: true });
-export default SellerProfile;
+export default Products;

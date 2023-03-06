@@ -26,7 +26,6 @@ router.put('/profile', verifyToken, (req, res) => {
     if (err) {
       res.status(403).send('Unauthorized User');
     } else {
-      res.status(200).send('User Authorized');
       newProfileseller(req, res);
     }
   });

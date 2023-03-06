@@ -1,9 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import jwt from 'jsonwebtoken';
+import rateLimiterMiddleware from './rateLimitermiddleware';
 import userRoutes from './api/routes/users';
 import customerRoutes from './api/routes/customer';
 import sellerRoutes from './api/routes/seller';
+import cartRoutes from './api/routes/cart';
 import productRoutes from './api/routes/product';
 
 const app = express();
@@ -22,32 +23,15 @@ app.use((req, res, next) => {
   next();
 });
 
-function verifyToken(req, res, next) {
-  const bearerToken = req.headers.authorization;
-  if (typeof bearerToken !== 'undefined') {
-    const bearer = bearerToken.split(' ');
-    const token = bearer[1];
-    req.token = token;
-    next();
-  } else {
-    res.status(401).send('Token Is Not Valid');
-  }
-}
+// Handle Rate Limit
+app.use(rateLimiterMiddleware);
 
 // To serve user queries
 app.use('/user', userRoutes);
 app.use('/product', productRoutes);
 app.use('/customer', customerRoutes);
-
-app.use('/seller', sellerRoutes, verifyToken, (req, res) => {
-  jwt.verify(req.token, 'Secretkey', (err) => {
-    if (err) {
-      res.status(403).send('Unauthorized User');
-    } else {
-      res.status(200).send('User Authorized');
-    }
-  });
-});
+app.use('/seller', sellerRoutes);
+app.use('/cart', cartRoutes);
 
 // To Handle 404 Errors
 app.use((req, res, next) => {

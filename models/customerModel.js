@@ -41,5 +41,5 @@ const CustomerProfile = sequelize.define('customerProfile', {
 
 });
 
-sequelize.sync({ alter: true });
+// sequelize.sync({ alter: true });
 export default CustomerProfile;

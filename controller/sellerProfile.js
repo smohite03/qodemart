@@ -6,27 +6,26 @@ const authControl = async (req, res) => {
     let user;
     if (exist.length === 0) {
       user = await sellerModel.create({
-        fullName: req.body.name,
+        fullName: req.body.fullName,
         sellerId: req.body.sellerId,
         email: req.body.email,
-        phoneNumber: req.body.number,
+        phoneNumber: req.body.phoneNumber,
         pincode: req.body.pincode,
         city: req.body.city,
         state: req.body.state,
-        shopArea: req.body.address,
-        gSTNum: req.body.gstnum,
+        shopArea: req.body.shopArea,
+        gstNum: req.body.gstNum,
       });
     } else {
       user = await sellerModel.update({
-        fullName: req.body.name,
+        fullName: req.body.fullName,
         sellerId: req.body.sellerId,
-        phoneNumber: req.body.number,
+        phoneNumber: req.body.phoneNumber,
         pincode: req.body.pincode,
         city: req.body.city,
         state: req.body.state,
-        area: req.body.address,
-        shopArea: req.body.address,
-        gSTNum: req.body.gstnum,
+        shopArea: req.body.shopArea,
+        gstNum: req.body.gstNum,
       }, {
         where: {
           email: req.body.email,
