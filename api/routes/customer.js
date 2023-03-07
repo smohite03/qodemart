@@ -22,7 +22,7 @@ function verifyToken(req, res, next) {
 }
 
 router.put('/profile', verifyToken, (req, res) => {
-  jwt.verify(req.token, 'Secretkey', (err) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.status(403).send('Unauthorized User');
     } else {

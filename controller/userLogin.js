@@ -15,7 +15,7 @@ const loginAuth = async (req, res) => {
           email: user[0].dataValues.email,
           role: user[0].dataValues.role,
         };
-        return jwt.sign({ userSeesion }, 'Secretkey', { expiresIn: '3600s' }, (error, token) => {
+        return jwt.sign({ userSeesion }, process.env.SECRET_KEY, { expiresIn: '3600s' }, (error, token) => {
           res.status(200).json({
             token,
             session: userSeesion,

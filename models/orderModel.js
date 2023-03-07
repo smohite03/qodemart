@@ -34,5 +34,5 @@ const Order = sequelize.define('Order', {
   logging: false,
 });
 
-sequelize.sync({ alter: true });
+// sequelize.sync({ alter: true });
 export default Order;

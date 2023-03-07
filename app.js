@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import rateLimiterMiddleware from './rateLimitermiddleware';
 import userRoutes from './api/routes/users';
 import customerRoutes from './api/routes/customer';
@@ -8,6 +9,7 @@ import cartRoutes from './api/routes/cart';
 import productRoutes from './api/routes/product';
 import orderRoutes from './api/routes/order';
 
+dotenv.config();
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,4 +53,5 @@ app.use((error, req, res) => {
   });
 });
 
-app.listen(3000);
+const port = process.env.DEV_PORT || 3000;
+app.listen(port);

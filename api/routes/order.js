@@ -20,7 +20,7 @@ function verifyToken(req, res, next) {
 }
 
 router.get('/customer', verifyToken, async (req, res) => {
-  jwt.verify(req.token, 'Secretkey', (err) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.status(403).send('Unauthorized User');
     } else {
@@ -30,7 +30,7 @@ router.get('/customer', verifyToken, async (req, res) => {
 });
 
 router.get('/seller', verifyToken, async (req, res) => {
-  jwt.verify(req.token, 'Secretkey', (err) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.status(403).send('Unauthorized User');
     } else {
@@ -40,7 +40,7 @@ router.get('/seller', verifyToken, async (req, res) => {
 });
 
 router.post('/', verifyToken, async (req, res) => {
-  jwt.verify(req.token, 'Secretkey', (err) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.status(403).send('Unauthorized User');
     } else {
@@ -50,7 +50,7 @@ router.post('/', verifyToken, async (req, res) => {
 });
 
 router.put('/status', verifyToken, async (req, res) => {
-  jwt.verify(req.token, 'Secretkey', (err) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.status(403).send('Unauthorized User');
     } else {
