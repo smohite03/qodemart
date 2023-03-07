@@ -6,6 +6,7 @@ import customerRoutes from './api/routes/customer';
 import sellerRoutes from './api/routes/seller';
 import cartRoutes from './api/routes/cart';
 import productRoutes from './api/routes/product';
+import orderRoutes from './api/routes/order';
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use('/product', productRoutes);
 app.use('/customer', customerRoutes);
 app.use('/seller', sellerRoutes);
 app.use('/cart', cartRoutes);
+app.use('/order', orderRoutes);
 
 // To Handle 404 Errors
 app.use((req, res, next) => {
