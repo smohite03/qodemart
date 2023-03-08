@@ -2,18 +2,18 @@ import CustomerProfile from '../models/customerModel';
 
 const authControl = async (req, res) => {
   try {
-    const exist = await CustomerProfile.findAll({ where: { email: req.body.email } });
+    const exist = await CustomerProfile.findAll({ where: { customerId: req.body.customerId } });
     console.log(exist);
     if (exist.length === 0) {
       const user = await CustomerProfile.create({
         customerId: req.body.customerId,
-        fullName: req.body.name,
+        fullName: req.body.fullName,
         email: req.body.email,
-        phoneNumber: req.body.number,
+        phoneNumber: req.body.phoneNumber,
         pincode: req.body.pincode,
         city: req.body.city,
         state: req.body.state,
-        area: req.body.address,
+        area: req.body.area,
       });
       if (user) {
         return res.status(201).send('Details Created successfully');
@@ -21,16 +21,16 @@ const authControl = async (req, res) => {
     } else {
       const user = await CustomerProfile.update({
         customerId: req.body.customerId,
-        fullName: req.body.name,
+        fullName: req.body.fullName,
         email: req.body.email,
-        phoneNumber: req.body.number,
+        phoneNumber: req.body.phoneNumber,
         pincode: req.body.pincode,
         city: req.body.city,
         state: req.body.state,
-        area: req.body.address,
+        area: req.body.area,
       }, {
         where: {
-          email: req.body.email,
+          customerId: req.body.customerId,
         },
       });
       if (user) {

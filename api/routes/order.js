@@ -4,6 +4,7 @@ import viewOrderbyCustomer from '../../controller/viewOrderbyCustomer';
 import viewOrderbySeller from '../../controller/viewOrderbySeller';
 import createOrder from '../../controller/createOrder';
 import changeOrderStatus from '../../controller/changeOrderStatus';
+import getOrderbyId from '../../controller/getOrderbyId';
 
 const router = express.Router();
 
@@ -18,6 +19,10 @@ function verifyToken(req, res, next) {
     res.status(401).send('Token Is Not Valid');
   }
 }
+
+router.get('/', async (req, res) => {
+  getOrderbyId(req, res);
+});
 
 router.get('/customer', verifyToken, async (req, res) => {
   jwt.verify(req.token, process.env.SECRET_KEY, (err) => {

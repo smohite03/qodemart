@@ -2,7 +2,7 @@ import sellerModel from '../models/sellerModel';
 
 const authControl = async (req, res) => {
   try {
-    const exist = await sellerModel.findAll({ where: { email: req.body.email } });
+    const exist = await sellerModel.findAll({ where: { sellerId: req.body.sellerId } });
     let user;
     if (exist.length === 0) {
       user = await sellerModel.create({
@@ -32,7 +32,7 @@ const authControl = async (req, res) => {
         gstNum: req.body.gstNum,
       }, {
         where: {
-          email: req.body.email,
+          sellerId: req.body.sellerId,
         },
       });
       if (user) {

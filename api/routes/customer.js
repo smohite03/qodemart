@@ -1,6 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import getAlluser from '../../controller/fetchAllusers';
+import getProfileuserId from '../../controller/getProfileuserId';
 import newProfile from '../../controller/customerProfile';
 
 const router = express.Router();
@@ -21,6 +22,16 @@ function verifyToken(req, res, next) {
     res.status(401).send('Token Is Not Valid');
   }
 }
+
+router.get('/profile', verifyToken, (req, res) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
+    if (err) {
+      res.status(403).send('Unauthorized User');
+    } else {
+      getProfileuserId(req, res);
+    }
+  });
+});
 
 router.put('/profile', verifyToken, (req, res) => {
   console.log(req.token);
