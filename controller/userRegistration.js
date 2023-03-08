@@ -5,7 +5,7 @@ const authControl = async (req, res) => {
   try {
     const exist = await User.findAll({ where: { email: req.body.email } });
     if (exist.length === 0) {
-      const saltGen = process.env.SALT_GEN;
+      const saltGen = parseInt(process.env.SALT_GEN, 10);
       const salt = await bcrypt.genSalt(saltGen);
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
       console.log(hashedPassword);

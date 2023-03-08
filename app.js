@@ -55,3 +55,5 @@ app.use((error, req, res) => {
 
 const port = process.env.DEV_PORT || 3000;
 app.listen(port);
+
+export default app;

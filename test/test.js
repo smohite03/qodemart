@@ -1,21 +1,19 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../../Express Database/server';
+import app from '../app';
 
-chai.should();
+const { expect } = chai;
 chai.use(chaiHttp);
-describe('App unit testing', () => {
-  describe('Get Type unit Testing', () => {
-    it('Get all users', (done) => {
-      chai.request(server).get('/user').end((err, response) => {
-        if (err) {
-          console.log(err);
-        } else {
-          response.should.have.status(201);
-          response.body.should.be.a('array');
-        }
+
+describe('GET /user', () => {
+  it('should return all users', (done) => {
+    chai
+      .request(app)
+      .get('/user')
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body).to.be.an('array');
+        done();
       });
-      done();
-    });
   });
 });

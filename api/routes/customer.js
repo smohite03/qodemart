@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
 
 function verifyToken(req, res, next) {
   const bearerToken = req.headers.authorization;
+  console.log(req.headers.authorization);
   if (typeof bearerToken !== 'undefined') {
     const bearer = bearerToken.split(' ');
     const token = bearer[1];
@@ -22,6 +23,7 @@ function verifyToken(req, res, next) {
 }
 
 router.put('/profile', verifyToken, (req, res) => {
+  console.log(req.token);
   jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.status(403).send('Unauthorized User');

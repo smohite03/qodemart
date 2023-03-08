@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon --experimental-modules --es-module-specifier-resolution=node app.js",
-    "test": "mocha"
+    "test": "mocha  --es-module-specifier-resolution=node"
   },
   "keywords": [],
   "author": "",

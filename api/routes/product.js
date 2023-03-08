@@ -6,6 +6,7 @@ import createNewProduct from '../../controller/createNewProduct';
 import updateProduct from '../../controller/updateProduct';
 import deleteProduct from '../../controller/deleteProduct';
 import getProductbySeller from '../../controller/getProductbySeller';
+import getProductbycategory from '../../controller/getProductbycategory';
 
 const router = express.Router();
 
@@ -20,6 +21,10 @@ function verifyToken(req, res, next) {
     res.status(401).send('Token Is Not Valid');
   }
 }
+
+router.get('/category', async (req, res) => {
+  getProductbycategory(req, res);
+});
 
 router.get('/seller', async (req, res) => {
   getProductbySeller(req, res);
