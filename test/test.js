@@ -1,11 +1,12 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app.js';
+
 import  jwt from 'jsonwebtoken';
+
 
 const { expect } = chai;
 chai.use(chaiHttp);
-
 describe('GET /user', () => {
   it('should return all users', (done) => {
     chai
@@ -18,6 +19,7 @@ describe('GET /user', () => {
       });
   });
 });
+
 
 
 
@@ -62,6 +64,7 @@ describe('User Login API', function() {
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('object');
         expect(res.body.token).to.be.a('string');
+
 
         // Verify the JWT token
         const decodedToken = jwt.verify(res.body.token, 'TaRaRamPamPam');
