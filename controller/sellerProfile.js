@@ -1,4 +1,4 @@
-import sellerModel from '../models/sellerModel';
+import sellerModel from '../models/sellerModel.js';
 
 const authControl = async (req, res) => {
   try {

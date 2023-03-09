@@ -1,8 +1,8 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import getAlluser from '../../controller/fetchAllusers';
-import getProfileuserId from '../../controller/getProfileuserId';
-import newProfile from '../../controller/customerProfile';
+import getAlluser from '../../controller/fetchAllusers.js';
+import getProfileuserId from '../../controller/getProfileuserId.js';
+import newProfile from '../../controller/customerProfile.js';
 
 const router = express.Router();
 

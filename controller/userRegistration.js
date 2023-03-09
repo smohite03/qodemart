@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import User from '../models/userModel';
+import User from '../models/userModel.js';
 
 const authControl = async (req, res) => {
   try {
@@ -19,12 +19,12 @@ const authControl = async (req, res) => {
       };
       const user = await User.create(data);
       if (user) {
-        return res.status(201).send(user);
+        res.status(201).send(user);
       }
     } else {
       res.status(401).send('User already exists');
     }
-    return res.status(409).send('Details are not correct');
+    res.status(409).send('Details are not correct');
   } catch (error) {
     console.log(error);
   }

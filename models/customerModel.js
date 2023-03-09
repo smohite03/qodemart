@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../../Express Database/connection';
+import sequelize from '../connection.js';
 
 const CustomerProfile = sequelize.define('customerProfile', {
   id: {

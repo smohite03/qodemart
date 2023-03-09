@@ -1,4 +1,4 @@
-import Order from '../models/orderModel';
+import Order from '../models/orderModel.js';
 
 const changeOrderStatus = async (req, res) => {
   try {

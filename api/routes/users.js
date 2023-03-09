@@ -1,8 +1,8 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import getalluser from '../../controller/fetchAllusers';
-import registerUser from '../../controller/userRegistration';
-import loginCntrol from '../../controller/userLogin';
+import getalluser from '../../controller/fetchAllusers.js';
+import registerUser from '../../controller/userRegistration.js';
+import loginCntrol from '../../controller/userLogin.js';
 
 const router = express.Router();
 

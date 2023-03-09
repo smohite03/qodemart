@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../../Express Database/connection';
-
+import sequelize from '../connection.js';
 const Cart = sequelize.define('Cart', {
   id: {
     allowNull: false,
@@ -12,6 +11,9 @@ const Cart = sequelize.define('Cart', {
     type: DataTypes.INTEGER,
   },
   productId: {
+    type: DataTypes.INTEGER,
+  },
+  productRate: {
     type: DataTypes.INTEGER,
   },
   productName: {
@@ -26,8 +28,6 @@ const Cart = sequelize.define('Cart', {
   freezeTableName: true,
   timestamps: true,
   logging: false,
-
 });
-
 // sequelize.sync({ alter: true });
 export default Cart;

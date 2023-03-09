@@ -1,10 +1,10 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import viewCart from '../../controller/viewCart';
-import addItemtoCart from '../../controller/addItemtoCart';
-import deleteItemfromCart from '../../controller/deleteItemfromCart';
-import editItemofCart from '../../controller/editItemofCart';
-import clearCustomerCart from '../../controller/clearCustomerCart';
+import viewCart from '../../controller/viewCart.js';
+import addItemtoCart from '../../controller/addItemtoCart.js';
+import deleteItemfromCart from '../../controller/deleteItemfromCart.js';
+import editItemofCart from '../../controller/editItemofCart.js';
+import clearCustomerCart from '../../controller/clearCustomerCart.js';
 
 const router = express.Router();
 

@@ -1,4 +1,4 @@
-import CustomerProfile from '../models/customerModel';
+import CustomerProfile from '../models/customerModel.js';
 
 const authControl = async (req, res) => {
   try {
