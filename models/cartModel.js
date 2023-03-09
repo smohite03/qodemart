@@ -14,6 +14,9 @@ const Cart = sequelize.define('Cart', {
   productId: {
     type: DataTypes.INTEGER,
   },
+  productRate: {
+    type: DataTypes.INTEGER,
+  },
   productName: {
     type: DataTypes.STRING,
   },

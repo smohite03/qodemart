@@ -6,6 +6,7 @@ const editItemofCart = async (req, res) => {
       custId: req.body.custId,
       productId: req.body.productId,
       productName: req.body.productName,
+      productRate: req.body.productRate,
       productQuantity: req.body.productQuantity,
     }, {
       where: {
