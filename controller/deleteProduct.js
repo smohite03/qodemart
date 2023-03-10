@@ -1,4 +1,4 @@
-import {Products} from '../models/allModels';
+import { Products } from '../models/allModels';
 
 const deleteProduct = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-import {SellerProfile} from '../models/allModels';
+import { SellerProfile } from '../models/allModels';
 
 const authControl = async (req, res) => {
   try {

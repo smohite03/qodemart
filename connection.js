@@ -1,13 +1,11 @@
-import Sequelize from 'sequelize';
+import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('UserInformation', 'user_1', 'test123', {
-  host: 'localhost',
-  dialect: 'postgres',
-});
+// Option 3: Passing parameters separately (other dialects)
+const sequelize = new Sequelize('postgres://postgres:qod@123@localhost:5432/user'); // Example for postgres
 
 try {
-  sequelize.authenticate();
-  console.log('Connection established .');
+  await sequelize.authenticate();
+  console.log('Connection has been established successfully.');
 } catch (error) {
   console.error('Unable to connect to the database:', error);
 }

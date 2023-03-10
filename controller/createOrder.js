@@ -1,4 +1,4 @@
-import {Order} from '../models/allModels';
+import { Order } from '../models/allModels';
 
 const createOrder = async (req, res) => {
   try {

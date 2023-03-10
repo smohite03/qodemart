@@ -1,9 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import jwt from 'jsonwebtoken';
 import app from '../app';
-
-import  jwt from 'jsonwebtoken';
-
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -20,14 +18,11 @@ describe('GET /user', () => {
   });
 });
 
-
-
-
-describe('Customer Profile API', function () {
-  it('should return customer profile data for customerId 1', function (done) {
+describe('Customer Profile API', () => {
+  it('should return customer profile data for customerId 1', (done) => {
     chai.request('localhost:3000')
       .get('/customer/profile?customerId=1')
-      .end(function (err, res) {
+      .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(401);
         expect(res.body).to.be.an('object');
@@ -39,7 +34,7 @@ describe('Customer Profile API', function () {
       });
   });
 
-  it('should return a 404 status code for an invalid customerId', function (done) {
+  it('should return a 404 status code for an invalid customerId', (done) => {
     chai.request('localhost:3000')
       .get('/customer/profile?customerId=123')
       .end((err, res) => {
@@ -48,50 +43,39 @@ describe('Customer Profile API', function () {
         done();
       });
   });
-
 });
 
-
-
-
-describe('User Login API', function() {
-  it('should return a JWT token on successful login', function(done) {
+describe('User Login API', () => {
+  it('should return a JWT token on successful login', (done) => {
     chai.request('http://localhost:3000')
       .post('/user/login')
       .send({ email: 'shashwat@gmail.com', password: '1234' })
-      .end(function(err, res) {
+      .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('object');
         expect(res.body.token).to.be.a('string');
 
-
         // Verify the JWT token
         const decodedToken = jwt.verify(res.body.token, 'TaRaRamPamPam');
-
         done();
       });
   });
-
 });
-
 
 describe('POST /user', () => {
   it('should return status code 201 and a success message on successful creation', (done) => {
-//
-   
-
-chai.request(app).post('/user').send( {"fullName":"Shashwat Mohite",
-    "email": "shashwat@gmail.com",
-    "phoneNumber": 476221123,
-    "gender":"Male",
-    "role":"Seller",
-    "password":"1234"});
-  },(err,res)=>{
+    //
+    chai.request(app).post('/user').send({
+      fullName: 'Shashwat Mohite',
+      email: 'shashwat@gmail.com',
+      phoneNumber: 476221123,
+      gender: 'Male',
+      role: 'Seller',
+      password: '1234',
+    });
+  }, (err, res) => {
     expect(res.status).to.equal(201);
-    
-  })
+  });
   done;
 });
-
-

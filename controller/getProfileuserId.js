@@ -1,4 +1,4 @@
-import {CustomerProfile} from '../models/allModels';
+import { CustomerProfile } from '../models/allModels';
 
 const getProfileuserId = async (req, res) => {
   try {
