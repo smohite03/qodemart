@@ -1,8 +1,8 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import getAlluser from '../../controller/fetchAllusers.js';
-import newProfileseller from '../../controller/sellerProfile.js';
-import getSellerbyId from '../../controller/getSellerbyId.js';
+import getAlluser from '../../controller/fetchAllusers';
+import newProfileseller from '../../controller/sellerProfile';
+import getSellerbyId from '../../controller/getSellerbyId';
 
 const router = express.Router();
 

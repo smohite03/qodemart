@@ -1,12 +1,12 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import getAllProduct from '../../controller/getAllProduct.js';
-import getSingleProduct from '../../controller/getSingleProduct.js';
-import createNewProduct from '../../controller/createNewProduct.js';
-import updateProduct from '../../controller/updateProduct.js';
-import deleteProduct from '../../controller/deleteProduct.js';
-import getProductbySeller from '../../controller/getProductbySeller.js';
-import getProductbycategory from '../../controller/getProductbycategory.js';
+import getAllProduct from '../../controller/getAllProduct';
+import getSingleProduct from '../../controller/getSingleProduct';
+import createNewProduct from '../../controller/createNewProduct';
+import updateProduct from '../../controller/updateProduct';
+import deleteProduct from '../../controller/deleteProduct';
+import getProductbySeller from '../../controller/getProductbySeller';
+import getProductbycategory from '../../controller/getProductbycategory';
 
 const router = express.Router();
 

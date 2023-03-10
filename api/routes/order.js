@@ -1,10 +1,10 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import viewOrderbyCustomer from '../../controller/viewOrderbyCustomer.js';
-import viewOrderbySeller from '../../controller/viewOrderbySeller.js';
-import createOrder from '../../controller/createOrder.js';
-import changeOrderStatus from '../../controller/changeOrderStatus.js';
-import getOrderbyId from '../../controller/getOrderbyId.js';
+import viewOrderbyCustomer from '../../controller/viewOrderbyCustomer';
+import viewOrderbySeller from '../../controller/viewOrderbySeller';
+import createOrder from '../../controller/createOrder';
+import changeOrderStatus from '../../controller/changeOrderStatus';
+import getOrderbyId from '../../controller/getOrderbyId';
 
 const router = express.Router();
 

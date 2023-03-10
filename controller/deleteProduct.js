@@ -1,8 +1,8 @@
-import Product from '../models/productModel.js';
+import {Products} from '../models/allModels';
 
 const deleteProduct = async (req, res) => {
   try {
-    const products = await Product.destroy({ where: { id: req.query.id } });
+    const products = await Products.destroy({ where: { id: req.query.id } });
     if (products) {
       return res.status(200).send('Product deleted successfully');
     }

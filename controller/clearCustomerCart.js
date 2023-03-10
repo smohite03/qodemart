@@ -1,4 +1,4 @@
-import Cart from '../models/cartModel.js';
+import {Cart} from '../models/allModels';
 
 const deleteItemfromCart = async (req, res) => {
   try {

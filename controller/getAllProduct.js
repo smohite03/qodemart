@@ -1,8 +1,8 @@
-import Product from '../models/productModel.js';
+import {Products} from '../models/allModels';
 
 const getallproduct = async (req, res) => {
   try {
-    const products = await Product.findAll({
+    const products = await Products.findAll({
       limit: 50,
       order: [['createdAt', 'DESC']],
       offset: (req.params.page - 1) * 50,

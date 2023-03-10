@@ -1,13 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import rateLimiterMiddleware from './rateLimitermiddleware.js';
-import userRoutes from './api/routes/users.js';
-import customerRoutes from './api/routes/customer.js';
-import sellerRoutes from './api/routes/seller.js';
-import cartRoutes from './api/routes/cart.js';
-import productRoutes from './api/routes/product.js';
-import orderRoutes from './api/routes/order.js';
+import rateLimiterMiddleware from './rateLimitermiddleware';
+import userRoutes from './api/routes/users';
+import customerRoutes from './api/routes/customer';
+import sellerRoutes from './api/routes/seller';
+import cartRoutes from './api/routes/cart';
+import productRoutes from './api/routes/product';
+import orderRoutes from './api/routes/order';
 
 dotenv.config();
 const app = express();

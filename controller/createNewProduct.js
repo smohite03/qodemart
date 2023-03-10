@@ -1,8 +1,8 @@
-import Product from '../models/productModel.js';
+import {Products} from '../models/allModels';
 
 const createNewProduct = async (req, res) => {
   try {
-    const Productval = await Product.create({
+    const Productval = await Products.create({
       sellerId: req.body.sellerId,
       imgpath: req.body.imgpath,
       productName: req.body.productName,

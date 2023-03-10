@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import User from '../models/userModel.js';
+import User from '../models/allModels';
 
 const authControl = async (req, res) => {
   try {
