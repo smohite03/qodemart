@@ -1,8 +1,8 @@
-import Product from '../models/productModel';
+import { Products } from '../models/allModels';
 
 const getProductbySeller = async (req, res) => {
   try {
-    const products = await Product.findAll({ where: { sellerId: req.query.sellerId } });
+    const products = await Products.findAll({ where: { sellerId: req.query.sellerId } });
     if (products) {
       return res.status(200).send(products);
     }

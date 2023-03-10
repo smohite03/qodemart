@@ -1,8 +1,8 @@
-import sellerModel from '../models/sellerModel';
+import { SellerProfile } from '../models/allModels';
 
 const getSellerbyId = async (req, res) => {
   try {
-    const customer = await sellerModel.findOne({ where: { sellerId: req.query.sellerId } });
+    const customer = await SellerProfile.findOne({ where: { sellerId: req.query.sellerId } });
     if (customer) {
       return res.status(200).send(customer);
     }

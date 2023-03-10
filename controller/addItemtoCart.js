@@ -1,11 +1,12 @@
-import Cart from '../models/cartModel';
+import { Cart } from '../models/allModels';
 
 const addItemtoCart = async (req, res) => {
   try {
     const cartItem = await Cart.create({
-      custId: req.body.custId,
+      customerId: req.body.custId,
       productId: req.body.productId,
       productName: req.body.productName,
+      productRate: req.body.productRate,
       productQuantity: req.body.productQuantity,
     });
     if (cartItem) {

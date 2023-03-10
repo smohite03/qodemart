@@ -1,11 +1,12 @@
-import Cart from '../models/cartModel';
+import { Cart } from '../models/allModels';
 
 const editItemofCart = async (req, res) => {
   try {
     const product = await Cart.update({
-      custId: req.body.custId,
+      customerId: req.body.custId,
       productId: req.body.productId,
       productName: req.body.productName,
+      productRate: req.body.productRate,
       productQuantity: req.body.productQuantity,
     }, {
       where: {

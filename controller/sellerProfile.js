@@ -1,11 +1,11 @@
-import sellerModel from '../models/sellerModel';
+import { SellerProfile } from '../models/allModels';
 
 const authControl = async (req, res) => {
   try {
-    const exist = await sellerModel.findAll({ where: { sellerId: req.body.sellerId } });
+    const exist = await SellerProfile.findAll({ where: { sellerId: req.body.sellerId } });
     let user;
     if (exist.length === 0) {
-      user = await sellerModel.create({
+      user = await SellerProfile.create({
         fullName: req.body.fullName,
         sellerId: req.body.sellerId,
         email: req.body.email,
@@ -20,7 +20,7 @@ const authControl = async (req, res) => {
         return res.status(201).send('Details Created successfully');
       }
     } else {
-      user = await sellerModel.update({
+      user = await SellerProfile.update({
         fullName: req.body.fullName,
         sellerId: req.body.sellerId,
         email: req.body.email,
