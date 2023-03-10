@@ -69,6 +69,12 @@ export const Order = sequelize.define('Order', {
     primaryKey: true,
     type: DataTypes.INTEGER,
   },
+  sellerId: {
+    type: DataTypes.INTEGER,
+  },
+  customerId: {
+    type: DataTypes.INTEGER,
+  },
   productIds: {
     type: DataTypes.STRING,
   },
@@ -195,24 +201,17 @@ const User = sequelize.define('RegistrationData', {
 export default User;
 
 User.hasOne(SellerProfile, { onDelete: 'CASCADE', foreignKey: 'sellerId' });
-//   SellerProfile.belongsTo(User,{onDelete :'CASCADE'});
 
 User.hasOne(CustomerProfile, { onDelete: 'CASCADE', foreignKey: 'customerId' });
-//   CustomerProfile.belongsTo(User,{onDelete :'CASCADE'});
 
 User.hasMany(Products, { onDelete: 'CASCADE', foreignKey: 'sellerId' });
-//   Products.belongsTo(User,{onDelete :'CASCADE'});
 
-CustomerProfile.hasMany(Order, { onDelete: 'CASCADE', foreignKey: 'custId' });
-// Order.belongsTo(CustomerProfile,{onDelete :'CASCADE'});
+CustomerProfile.hasMany(Order, { onDelete: 'CASCADE', foreignKey: 'customerId' });
 
 SellerProfile.hasMany(Order, { onDelete: 'CASCADE', foreignKey: 'sellerId' });
-// Order.belongsTo(SellerProfile,{onDelete :'CASCADE'});
 
 User.hasMany(Cart, { onDelete: 'CASCADE', foreignKey: 'customerId' });
-// Cart.belongsTo(User,{onDelete :'CASCADE'});
 
 Products.hasOne(Cart, { onDelete: 'CASCADE', foreignKey: 'productId' });
-// Cart.belongsTo(Products , {onDelete : 'CASCADE'});
 
 // sequelize.sync({ alter: true });

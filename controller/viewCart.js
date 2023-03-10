@@ -2,7 +2,7 @@ import { Cart } from '../models/allModels';
 
 const viewCart = async (req, res) => {
   try {
-    const products = await Cart.findAll({ where: { custId: req.query.custId } });
+    const products = await Cart.findAll({ where: { customerId: req.query.custId } });
     if (products) {
       return res.status(200).send(products);
     }

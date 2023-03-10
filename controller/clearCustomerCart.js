@@ -2,7 +2,7 @@ import { Cart } from '../models/allModels';
 
 const deleteItemfromCart = async (req, res) => {
   try {
-    const cartItem = await Cart.destroy({ where: { custId: req.query.custId } });
+    const cartItem = await Cart.destroy({ where: { customerId: req.query.custId } });
     if (cartItem) {
       return res.status(200).send('Cart Cleared Successfully');
     }

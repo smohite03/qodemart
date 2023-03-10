@@ -2,7 +2,7 @@ import { Order } from '../models/allModels';
 
 const viewOrder = async (req, res) => {
   try {
-    const orders = await Order.findAll({ where: { custId: req.query.custId } });
+    const orders = await Order.findAll({ where: { customerId: req.query.custId } });
     if (orders) {
       return res.status(200).send(orders);
     }

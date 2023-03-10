@@ -3,12 +3,12 @@ import { Order } from '../models/allModels';
 const createOrder = async (req, res) => {
   try {
     const Orderval = await Order.create({
-      custId: req.body.custId,
+      customerId: req.body.custId,
       sellerId: req.body.sellerId,
       productIds: req.body.productIds,
       orderStatus: req.body.orderStatus,
       paymentStatus: req.body.paymentStatus,
-      orderDiscription: req.body.orderDiscription,
+      OrderDesciption: req.body.OrderDesciption,
     });
     if (Orderval) {
       return res.status(200).send('Order Created Successfully');
