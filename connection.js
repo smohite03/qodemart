@@ -1,7 +1,10 @@
 import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
 
-// Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('postgres://postgres:qod@123@localhost:5432/user'); // Example for postgres
+dotenv.config();
+
+// For Postgres SQL Server
+const sequelize = new Sequelize(`postgres://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_USERNAME_PASSWORD}@localhost:5432/${process.env.DATABASE_NAME}`);
 
 try {
   await sequelize.authenticate();
