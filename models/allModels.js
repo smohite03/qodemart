@@ -206,10 +206,6 @@ User.hasOne(CustomerProfile, { onDelete: 'CASCADE', foreignKey: 'customerId' });
 
 User.hasMany(Products, { onDelete: 'CASCADE', foreignKey: 'sellerId' });
 
-CustomerProfile.hasMany(Order, { onDelete: 'CASCADE', foreignKey: 'customerId' });
-
-SellerProfile.hasMany(Order, { onDelete: 'CASCADE', foreignKey: 'sellerId' });
-
 User.hasMany(Cart, { onDelete: 'CASCADE', foreignKey: 'customerId' });
 
 Products.hasOne(Cart, { onDelete: 'CASCADE', foreignKey: 'productId' });
