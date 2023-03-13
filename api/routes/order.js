@@ -5,6 +5,7 @@ import viewOrderbySeller from '../../controller/viewOrderbySeller';
 import createOrder from '../../controller/createOrder';
 import changeOrderStatus from '../../controller/changeOrderStatus';
 import getOrderbyId from '../../controller/getOrderbyId';
+import createOrderazor from '../../controller/createOrderazor';
 
 const router = express.Router();
 
@@ -19,6 +20,10 @@ function verifyToken(req, res, next) {
     res.status(401).send('Token Is Not Valid');
   }
 }
+
+router.post('/createOrder', async (req, res) => {
+  createOrderazor(req, res);
+});
 
 router.get('/', async (req, res) => {
   getOrderbyId(req, res);
